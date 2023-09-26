@@ -1,15 +1,16 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 
 
 export default function Vans() {
     const [vans, setVans] = React.useState([])
+    
     React.useEffect(() => {
         fetch("/api/vans")
             .then(res => res.json())
             .then(data => setVans(data.vans))
     }, [])
-    console.log(vans)
+
     const vanElements = vans.map(van => (
         
         <div key={van.id} className="van-tile">

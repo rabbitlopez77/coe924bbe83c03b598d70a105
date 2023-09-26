@@ -7,6 +7,7 @@ export default function Layout() {
         <>
         <Header />
         <Outlet />
+        <footer className="footer">&#169; 2022 #VANLIFE</footer>
         </>
     )
 }

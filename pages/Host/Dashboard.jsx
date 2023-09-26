@@ -4,7 +4,7 @@ import React from "react";
 export default function Dashboard() {
     return (
         <>
-        <h1>This is the Host page</h1>
+        <h1>This is the Dashboard</h1>
 
         </>
     )

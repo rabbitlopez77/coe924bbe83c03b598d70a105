@@ -10,6 +10,12 @@ import Dashboard from './pages/Host/Dashboard';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
 import HostLayout from './components/HostLayout';
+import HostVans from './pages/Host/HostVans';
+import HostVansDetails from './pages/Host/HostVansDetails';
+import HostVanPricing from './pages/HostListedVans/HostVanPricing';
+import HostVanPhotos from './pages/HostListedVans/HostVanPhotos';
+import HostListedInfo from './pages/HostListedVans/HostListedInfo';
+
 
 import "./server"
 
@@ -17,16 +23,23 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/vans" element={<Vans />} />
-          <Route path="/vans/:id" element={<VanDetail />} />
-          <Route element={<HostLayout />} >
-            <Route path='/host' element={<Dashboard />} />
-            <Route path='/host/income' element={<Income />} />
-            <Route path='/host/reviews' element={<Reviews />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetail />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="host-vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVansDetails />}>
+              <Route index element={<HostListedInfo />} />    
+              <Route path='pricing' element={<HostVanPricing />} />
+              <Route path='host-photos' element={<HostVanPhotos />} />
+            </Route>
           </Route>
+          
         </Route>
       </Routes>
     </BrowserRouter>
